@@ -31,13 +31,15 @@ $$u^2=\dfrac{1}{N-1}\sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^2=\dfrac{N}{N-1}s^2
 一方，母集団の平均の推定値は，標本の平均$\bar{x}$が最良である．
 
 ## ソースコードの説明
-ave_online(int n, double val, double, ave), var_online(int n, double val, double ave, double square_ave)とした。
-引数に、整数型の引数nを追加した。
-while文の中では標本平均、分散、標本２乗平均の順で求めている。
-理由は、$s^2_{N}$を求める際に、$\bar{x^2}_{N - 1}$が必要になるからである。
-while文の最後でnをインクリメントしている。
-ave_onlineの中は$\bar{x}_{N} = \dfrac{N-1}{N} \bar{x}_{N-1} + \dfrac{1}{N} x_{N}$、
-var_onlineの中は$\left\{\dfrac{N-1}{N}\bar{x^2}_{N-1} + \dfrac{1}{N} x^2_{N} \right\}-\left(\dfrac{N-1}{N} \bar{x}_{N-1} + \dfrac{1}{N} x_{N}\right)^2$
-をそのまま使用している。
+
+- ave_online(int n, double val, double, ave), var_online(int n, double val, double ave, double square_ave)とした。
+  引数に、整数型の引数nを追加した。
+- while文の中では標本平均、分散、標本２乗平均の順で求めている。
+  理由は、$s^2_{N}$を求める際に、$\bar{x^2}_{N - 1}$が必要になるからである。
+- while文の最後でnをインクリメントしている。
+- ave_onlineの中は$\bar{x}_{N} = \dfrac{N-1}{N} \bar{x}_{N-1} + \dfrac{1}{N} x_{N}$、
+- var_onlineの中は$\left\{\dfrac{N-1}{N}\bar{x^2}_{N-1} + \dfrac{1}{N} x^2_{N} \right\}-\left(\dfrac{N-1}{N} \bar{x}_{N-1} + \dfrac{1}{N} x_{N}\right)^2$
+  をそのまま使用している。
+
 ## 修正履歴
 
