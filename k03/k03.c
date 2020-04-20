@@ -26,12 +26,7 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-
-
-    
-
-
-
+        printf("%lf  %lf\n", val, val + r_norm());
     }
 
     if(fclose(fp) == EOF){
