@@ -15,6 +15,10 @@ int main(void)
     char buf[256];
     FILE* fp;
 
+    var = 0;
+    ave = 0;
+    square_ave = 0;
+
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
     fname[strlen(fname)-1] = '\0';
@@ -26,8 +30,6 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-    ave = 0;
-    square_ave = 0;
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
         ave = ave_online(n, val, ave);
@@ -41,8 +43,12 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-    printf("average : %lf\n", ave);
-    printf("variance : %lf\n", var);
+    printf("%d\n", n);
+    printf("sanmple_average : %lf\n", ave);
+    printf("sanmple_variance : %lf\n", var);
+    printf("population_average : %lf\n", ave);
+    printf("population_variance : %lf\n", (n - 1) * var / (n - 2));
+
     return 0;
 
 

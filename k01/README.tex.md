@@ -40,6 +40,10 @@ $$u^2=\dfrac{1}{N-1}\sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^2=\dfrac{N}{N-1}s^2
 - ave_onlineの中は$\bar{x}_{N} = \dfrac{N-1}{N} \bar{x}_{N-1} + \dfrac{1}{N} x_{N}$、
 - var_onlineの中は$\left\{\dfrac{N-1}{N}\bar{x^2}_{N-1} + \dfrac{1}{N} x^2_{N} \right\}-\left(\dfrac{N-1}{N} \bar{x}_{N-1} + \dfrac{1}{N} x_{N}\right)^2$
   をそのまま使用している。
+  最後に、標本の平均、分散、母集団の平均、分散を表示している
+  母集団の平均は標本の平均をそのまま表示している。
+  母集団の分散の(n - 1)、(n - 2)についてだが、これはwhile文を抜ける前に n の値が無駄に一つ大きくなっているためである。
+  変数varは0で初期化した。
 
 ## 修正履歴
 
