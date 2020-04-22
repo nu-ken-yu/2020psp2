@@ -31,13 +31,20 @@ $$u^2=\dfrac{1}{N-1}\sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^2=\dfrac{N}{N-1}s^2
 一方，母集団の平均の推定値は，標本の平均$\bar{x}$が最良である．
 
 ## ソースコードの説明
-ave_online(int n, double val, double, ave), var_online(int n, double val, double ave, double square_ave)とした。
-引数に、整数型の引数nを追加した。
-while文の中では標本平均、分散、標本２乗平均の順で求めている。
-理由は、$s^2_{N}$を求める際に、$\bar{x^2}_{N - 1}$が必要になるからである。
-while文の最後でnをインクリメントしている。
-ave_onlineの中は$\bar{x}_{N} = \dfrac{N-1}{N} \bar{x}_{N-1} + \dfrac{1}{N} x_{N}$、
-var_onlineの中は$\left\{\dfrac{N-1}{N}\bar{x^2}_{N-1} + \dfrac{1}{N} x^2_{N} \right\}-\left(\dfrac{N-1}{N} \bar{x}_{N-1} + \dfrac{1}{N} x_{N}\right)^2$
-をそのまま使用している。
+
+- ave_online(int n, double val, double, ave), var_online(int n, double val, double ave, double square_ave)とした。
+  引数に、整数型の引数nを追加した。
+- while文の中では標本平均、分散、標本２乗平均の順で求めている。
+  理由は、$s^2_{N}$を求める際に、$\bar{x^2}_{N - 1}$が必要になるからである。
+- while文の最後でnをインクリメントしている。
+- ave_onlineの中は$\bar{x}_{N} = \dfrac{N-1}{N} \bar{x}_{N-1} + \dfrac{1}{N} x_{N}$、
+- var_onlineの中は$\left\{\dfrac{N-1}{N}\bar{x^2}_{N-1} + \dfrac{1}{N} x^2_{N} \right\}-\left(\dfrac{N-1}{N} \bar{x}_{N-1} + \dfrac{1}{N} x_{N}\right)^2$
+  をそのまま使用している。
+
 ## 修正履歴
 
+- 概ねOKです．
+- コンパイルは，`gcc -o k01 k01.c -W -Wall`などと`-W`と`-Wall`の2つのオプションを加えてコンパイルしてみてください．現状だと警告(Warning)が出ると思います．今後はWarningやerrorがでなくなってから提出してください．どうしてもWarningやerrorを解決できない場合は相談してください．
+- 現状で出ているWarningは`'var' may be used uninitialized in this function`．すなわち'var'という変数が初期化されずに使われていると警告されています．
+  もし，while文に入らなかったら，最後のほうにあるprintfが表示するvarの値は不定値（どんな値かわからない）になり，これは問題です．
+- 出力しないといけないのは，2つの値ではなく，「標本平均」「標本分散」「母集団平均（推定値）」「母集団分散（推定値）」の4つです．現状では足りません．
