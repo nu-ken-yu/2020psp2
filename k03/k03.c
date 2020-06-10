@@ -6,34 +6,25 @@
 extern double r_unif(void);
 extern double r_norm(void);
 
-int main(void)
+int main(int argc, char* argv[])
 {
-    double val;
-    char fname[FILENAME_MAX];
-    char buf[256];
-    FILE* fp;
+    int i, n;
+    double x, mu, stdvar;
+   
+    sscanf(argv[1], "%lf", &mu);
+    sscanf(argv[2], "%lf", &stdvar);
+    sscanf(argv[3], "%d", &n);
 
-    printf("input the filename of sample:");
-    fgets(fname,sizeof(fname),stdin);
-    fname[strlen(fname)-1] = '\0';
-    printf("the filename of sample: %s\n",fname);
+    printf("============================================\n");
+    printf("template mean: %lf\n", mu);
+    printf("template standard deviation: %lf\n", stdvar);
+    printf("Num of dummy data: %d\n", n);
+    printf("============================================\n");
 
-    fp = fopen(fname,"r");
-    if(fp==NULL){
-        fputs("File open error\n",stderr);
-        exit(EXIT_FAILURE);
+    for(i = 0; i < n; i++){
+        x = sqrt(stdvar) * r_norm() + mu;
+        printf("%lf\n", x);
     }
-
-    while(fgets(buf,sizeof(buf),fp) != NULL){
-        sscanf(buf,"%lf",&val);
-        printf("%lf  %lf\n", val, val + r_norm());
-    }
-
-    if(fclose(fp) == EOF){
-        fputs("file close error\n",stderr);
-        exit(EXIT_FAILURE);
-    }
-
 
     return 0;
 
