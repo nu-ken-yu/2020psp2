@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#ifdef CONST_SEED
+#define RAND_SEED 2020
+#else
+#include<time.h>
+#define RAND_SEED ((unsigned)time(NULL))
+#endif
 
 extern double r_unif(void);
 extern double r_norm(void);
@@ -21,6 +27,7 @@ int main(int argc, char* argv[])
     printf("Num of dummy data: %d\n", n);
     printf("============================================\n");
 
+    srand(RAND_SEED);
     for(i = 0; i < n; i++){
         x = sqrt(stdvar) * r_norm() + mu;
         printf("%lf\n", x);
