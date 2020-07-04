@@ -77,3 +77,6 @@ population variance (estimated)：28.984812
 
 [comment #20200623 kotaro]
 - まだ完成していないようです．上述の修正を指示した箇所を直してください．
+
+[comment #20200704]
+- OKです. 
