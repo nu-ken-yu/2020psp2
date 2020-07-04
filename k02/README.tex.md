@@ -1,6 +1,6 @@
 # 課題 2 レポート
 
-aa83988848 薗田光太郎
+bb35319015 沖野玄勇
 
 ## 課題
 
@@ -41,8 +41,8 @@ $$
 ## 入出力結果
 
 ```
-Likelihood for A：
-Likelihood for B：
+Likelihood for A：0.000546
+Likelihood for B：0.000532
 ```
 
 ## 修正履歴

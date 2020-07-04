@@ -4,7 +4,7 @@
 #include <math.h>
 
 typedef struct heights{
-    double id;
+    int id;
     char gender[10];
     double heights;
 } man_data;
@@ -18,9 +18,9 @@ int main(void)
     char fname_ID[FILENAME_MAX];
     char buf_height[256];
     char buf_ID[254];
-    double input_id;
+    int input_id;
     man_data man[100];
-    FILE* fp_height, * fp_ID;
+    FILE *fp_height, *fp_ID;
 
     printf("input the filename of sample height:");
     fgets(fname_height,sizeof(fname_height),stdin);
@@ -30,7 +30,7 @@ int main(void)
     fgets(fname_ID,sizeof(fname_ID),stdin);
     fname_ID[strlen(fname_ID)-1] = '\0';
     printf("Which ID's data do you want? : ");
-    scanf("%lf", &input_id);
+    scanf("%d", &input_id);
 
     fp_height = fopen(fname_height,"r");
     if(fp_height==NULL){
@@ -46,7 +46,7 @@ int main(void)
 
     fgets(buf_height, sizeof(buf_height), fp_height);
     while(fgets(buf_height, sizeof(buf_height), fp_height) != NULL && fgets(buf_ID, sizeof(buf_ID), fp_ID) != NULL){
-        sscanf(buf_ID, "%lf", &man[n].id);
+        sscanf(buf_ID, "%d", &man[n].id);
         sscanf(buf_height, "%d, %lf", &tbl_gender, &man[n].heights);
         if(tbl_gender == 1){
             strcpy(man[n].gender, "Male");
@@ -60,7 +60,7 @@ int main(void)
     printf("\n");
     for(i = 0; i < n; i++){
         if(input_id == man[i].id){
-            printf("ID : %.0lf\n", man[i].id);
+            printf("ID : %d\n", man[i].id);
             printf("Gender : %s\n", man[i].gender);
             printf("Heights : %.2lf\n", man[i].heights);
             break;
