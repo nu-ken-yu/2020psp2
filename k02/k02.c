@@ -38,10 +38,10 @@ int main(void)
     scanf("%lf", &var_b);
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-        z = (val - mu_a) / var_a;
+        z = (val - mu_a) / sqrt(var_a);
         La = p_stdnorm(z) * La;
 
-        z = (val - mu_b) / var_b;
+        z = (val - mu_b) / sqrt(var_b);
         Lb = p_stdnorm(z) * Lb;
     }
 

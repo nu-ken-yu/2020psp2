@@ -41,8 +41,13 @@ $$
 ## 入出力結果
 
 ```
-Likelihood for A：0.000546
-Likelihood for B：0.000532
+mu_a = 170.8
+var_a = 29.4849
+mu_b = 169.7
+var_b = 30.25
+
+Likelihood for A：0.000006
+Likelihood for B：0.000002
 ```
 
 ## 修正履歴
