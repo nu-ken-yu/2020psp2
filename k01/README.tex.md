@@ -80,3 +80,6 @@ population variance (estimated)：28.984812
 
 [comment #20200704]
 - OKです. 
+
+[comment #20200707 kotaro]
+-　課題１の完了を確認（薗田）
