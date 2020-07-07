@@ -47,3 +47,6 @@ No data
 
 [comment #20200704]
 - OKです.
+
+[comment #20200707 sonoda]
+- 課題4完了確認（薗田）
