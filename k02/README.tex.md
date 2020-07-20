@@ -67,3 +67,6 @@ Likelihood for B：0.000002
 
 [comment #20200706]
 - OKです. 
+
+[comment #20200720 sonoda]
+- 課題2の完了を確認
